@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { IMovie } from '../types'
 import MovieList from './MovieList'
+import './MovieList.css'
 
 export default function Movies() {
   const { REACT_APP_TMDB_API_KEY } = process.env
@@ -26,11 +27,10 @@ export default function Movies() {
   }
 
   return (
-    <div>
-      <h1>MOVIES BITCH!</h1>
+    <div className='movieContainer'>
       {
         movies.map((movie: IMovie) => {
-          return <MovieList key={movie.id} title={movie.title} poster_path={movie.poster_path} adult={false} backdrop_path={''} genre_ids={[]} id={0} original_language={''} original_title={''} overview={''} popularity={0} release_date={''} video={false} vote_average={0} vote_count={0}/>
+          return <MovieList key={movie.id} title={movie.title} poster_path={movie.poster_path} adult={false} backdrop_path={''} genre_ids={[]} id={0} original_language={''} original_title={''} overview={''} popularity={0} release_date={movie.release_date} video={false} vote_average={movie.vote_average} vote_count={0}/>
         })
       }
     </div>

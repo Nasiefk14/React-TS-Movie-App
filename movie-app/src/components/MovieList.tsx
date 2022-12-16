@@ -1,11 +1,14 @@
-import { IMovie } from '../types'
+import { IMovie } from "../types";
+import "./MovieList.css";
 
-export default function MovieList({title, poster_path} : IMovie){
+export default function MovieList({ title, poster_path, vote_average, release_date }: IMovie) {
   return (
-    <>
-    Movie List
-              <h1>{title}</h1>
-              <h3>{poster_path}</h3>
-    </>
-  )
+    <div className="movieItem">
+      <img
+        className="posterImage"
+        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+        alt="Poster Image"
+      />
+    </div>
+  );
 }
