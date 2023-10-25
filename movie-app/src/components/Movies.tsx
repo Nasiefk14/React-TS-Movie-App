@@ -16,9 +16,9 @@ export default function Movies() {
   const getAllMovies = async () => {
     try {
       let response = await axios.get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${REACT_APP_TMDB_API_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${REACT_APP_TMDB_API_KEY}&language=en-US&page=2`
       )
-      if(response.data.results.length > 0){
+      if(response.data.results.length > 1){
         setMovies(response.data.results)
       }
     } catch (err) {
